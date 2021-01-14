@@ -20,7 +20,9 @@ def load_model(config_file, imgs_path):
     # for config_file in config_files:
     cfg.merge_from_file(config_file)
     model = choose_net(name=cfg.MODEL.NAME, num_classes=cfg.MODEL.CLASSES, weight_path=cfg.MODEL.WEIGHT_FROM)
-    weight_path = cfg.MODEL.MODEL_PATH + cfg.MODEL.NAME + '.pth'
+    
+    # weight_path = cfg.MODEL.MODEL_PATH + cfg.MODEL.NAME + '.pth'
+    weight_path = '../input/b2b3b4-1/weights/'+ cfg.MODEL.NAME + '.pth'
     state_dict = torch.load(weight_path)
     model.load_state_dict(state_dict)
     model.cuda()
