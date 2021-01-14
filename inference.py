@@ -11,7 +11,7 @@ import numpy as np
 from PIL import Image
 
 
-config_files = ['./configs/efficientnetb2.yaml', './configs/efficientnetb3.yaml', './configs/efficientnetb4.yaml']
+config_files = ['../input/b2b3b4_1/configs/efficientnetb2.yaml', '../input/b2b3b4_1/configs/efficientnetb3.yaml', '../input/b2b3b4_1/configs/efficientnetb4.yaml']
 
 
 
