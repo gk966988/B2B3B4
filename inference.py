@@ -10,7 +10,8 @@ from torch.nn import functional as F
 import numpy as np
 from PIL import Image
 
-
+USE_CUDA = torch.cuda.is_available()
+device = torch.device("cuda:0" if USE_CUDA else "cpu")
 config_files = ['../input/b2b3b4-1/configs/efficientnetb2.yaml', '../input/b2b3b4-1/configs/efficientnetb3.yaml', '../input/b2b3b4-1/configs/efficientnetb4.yaml']
 
 
@@ -26,7 +27,7 @@ def load_model(config_file, imgs_path):
     checkpoint = torch.load(weight_path)
     state_dict = checkpoint['state_dict']
     model.load_state_dict(state_dict)
-    model.cuda()
+    model.to(device)
     model.eval()
     transform = T.Compose([
         T.Resize(cfg.INPUT.SIZE_TRAIN),
