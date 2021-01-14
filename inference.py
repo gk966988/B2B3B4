@@ -23,7 +23,8 @@ def load_model(config_file, imgs_path):
     
     # weight_path = cfg.MODEL.MODEL_PATH + cfg.MODEL.NAME + '.pth'
     weight_path = '../input/b2b3b4-1/weights/'+ cfg.MODEL.NAME + '.pth'
-    state_dict = torch.load(weight_path)
+    checkpoint = torch.load(weight_path)
+    state_dict = checkpoint['state_dict']
     model.load_state_dict(state_dict)
     model.cuda()
     model.eval()
