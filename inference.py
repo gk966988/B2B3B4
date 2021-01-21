@@ -23,7 +23,7 @@ def load_model(config_file, imgs_path):
     model = choose_net(name=cfg.MODEL.NAME, num_classes=cfg.MODEL.CLASSES, weight_path=cfg.MODEL.WEIGHT_FROM)
     
     # weight_path = cfg.MODEL.MODEL_PATH + cfg.MODEL.NAME + '.pth'
-    weight_path = '../input/b2b3b4-1/weights/'+ cfg.MODEL.NAME + '.pth'
+    weight_path = '../input/b2b3b4-2/weights/'+ cfg.MODEL.NAME + '.pth'
     checkpoint = torch.load(weight_path)
     state_dict = checkpoint['state_dict']
     model.load_state_dict(state_dict)
